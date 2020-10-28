@@ -41,3 +41,34 @@ function xScale(stateData, chosenXAxis) {
 
   return xLinearScale;
 }
+function yScale(stateData, chosenYAxis) {
+  var yLinearScale = d3
+    .scaleLinear()
+    .domain([0, d3.max(stateData, d => d[chosenYAxis])])
+    .range([height, 0]);
+
+  return yLinearScale;
+}
+
+// function used for updating x/yAxis var upon click on axis label
+function renderxAxes(newXScale, xAxis) {
+  var bottomAxis = d3.axisBottom(newXScale);
+
+  xAxis
+    .transition()
+    .duration(1000)
+    .call(bottomAxis);
+
+  return xAxis;
+}
+
+function renderyAxes(newYScale, yAxis) {
+  var leftAxis = d3.axisLeft(newYScale);
+
+  yAxis
+    .transition()
+    .duration(1000)
+    .call(leftAxis);
+
+  return yAxis;
+}
