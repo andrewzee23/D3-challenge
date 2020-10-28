@@ -12,3 +12,10 @@ var margin = {
 // Set chart width and height
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
+
+// creating svg wrapper
+var svg = d3
+  .select("#scatter")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
