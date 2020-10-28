@@ -72,3 +72,21 @@ function renderyAxes(newYScale, yAxis) {
 
   return yAxis;
 }
+
+// creating function to update circles group w/ transition to 'new' circles and text
+function renderCircles(
+  circlesGroup,
+  newXScale,
+  chosenXAxis,
+  newYScale,
+  chosenYAxis
+) {
+  circlesGroup
+    .selectAll("circle")
+    .transition()
+    .duration(1000)
+    .attr("cx", d => newXScale(d[chosenXAxis]))
+    .attr("cy", d => newYScale(d[chosenYAxis]));
+
+  return circlesGroup;
+}
