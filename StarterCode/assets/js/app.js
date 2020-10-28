@@ -1,4 +1,5 @@
 // Set height and width for svg
+
 var svgWidth = 960;
 var svgHeight = 500;
 
@@ -10,26 +11,31 @@ var margin = {
 };
 
 // Set chart width and height
+
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
 // creating svg wrapper
+
 var svg = d3
   .select("#scatter")
   .append("svg")
   .attr("width", svgWidth)
   .attr("height", svgHeight);
 
-  // appending svg group
+// appending svg group
+
 var chartGroup = svg
   .append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // axis params
+
 var chosenXAxis = "poverty";
 var chosenYAxis = "healthcare";
 
 // updating x/y scale when clicked
+
 function xScale(stateData, chosenXAxis) {
   var xLinearScale = d3
     .scaleLinear()
@@ -41,6 +47,7 @@ function xScale(stateData, chosenXAxis) {
 
   return xLinearScale;
 }
+
 function yScale(stateData, chosenYAxis) {
   var yLinearScale = d3
     .scaleLinear()
@@ -51,6 +58,7 @@ function yScale(stateData, chosenYAxis) {
 }
 
 // function used for updating x/yAxis var upon click on axis label
+
 function renderxAxes(newXScale, xAxis) {
   var bottomAxis = d3.axisBottom(newXScale);
 
@@ -74,6 +82,7 @@ function renderyAxes(newYScale, yAxis) {
 }
 
 // creating function to update circles group w/ transition to 'new' circles and text
+
 function renderCircles(
   circlesGroup,
   newXScale,
@@ -87,6 +96,23 @@ function renderCircles(
     .duration(1000)
     .attr("cx", d => newXScale(d[chosenXAxis]))
     .attr("cy", d => newYScale(d[chosenYAxis]));
+
+  return circlesGroup;
+}
+
+function rendertextCircles(
+  circlesGroup,
+  newXScale,
+  chosenXAxis,
+  newYScale,
+  chosenYAxis
+) {
+  circlesGroup
+    .selectAll("text")
+    .transition()
+    .duration(1000)
+    .attr("x", d => newXScale(d[chosenXAxis]))
+    .attr("y", d => newYScale(d[chosenYAxis]));
 
   return circlesGroup;
 }
