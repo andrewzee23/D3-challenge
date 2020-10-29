@@ -6,7 +6,7 @@
 
 .active {
   font-weight: bold;
-  fill: #000;
+  fill: white;
   transition: fill 0.3s ease-out;
   text-anchor: middle;
 }
@@ -19,14 +19,14 @@
 }
 
 .inactive:hover {
-  fill: #000;
+  fill:white;
   cursor: pointer;
 }
 
 /* font size dependent on radius, see app.js */
 .stateText {
   font-family: sans-serif;
-  fill: #fff;
+  fill: white;
   text-anchor: middle;
 }
 
