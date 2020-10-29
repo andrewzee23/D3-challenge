@@ -281,4 +281,11 @@ d3.csv("assets/data/data.csv")
       .classed("inactive", true)
       .text("Obesity(%)");
 
-    // adding event listeners to x and y axis
+    // adding event listeners to x axis
+    xlabelsGroup.selectAll("text").on("click", function updateScatter() {
+      // get value of selection
+      var value = d3.select(this).attr("value");
+      if (value !== chosenXAxis) {
+        // replaces chosenXAxis with value
+        chosenXAxis = value;
+        console.log(chosenXAxis);
