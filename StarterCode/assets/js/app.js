@@ -314,3 +314,23 @@ d3.csv("assets/data/data.csv")
 
         // update tooltips w/ new info
         circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+
+        // changing classes for each state
+        if (chosenXAxis === "age") {
+          ageLabel.classed("active", true).classed("inactive", false);
+          povertyLabel.classed("active", false).classed("inactive", true);
+          incomeLabel.classed("active", false).classed("inactive", true);
+        } else if (chosenXAxis === "poverty") {
+          ageLabel.classed("active", false).classed("inactive", true);
+          povertyLabel.classed("active", true).classed("inactive", false);
+          incomeLabel.classed("active", false).classed("inactive", true);
+        } else {
+          ageLabel.classed("active", false).classed("inactive", true);
+          povertyLabel.classed("active", false).classed("inactive", true);
+          incomeLabel.classed("active", true).classed("inactive", false);
+        }
+      }
+    });
+
+    
+  
