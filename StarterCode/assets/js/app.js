@@ -311,3 +311,6 @@ d3.csv("assets/data/data.csv")
           yLinearScale,
           chosenYAxis
         );
+
+        // update tooltips w/ new info
+        circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
