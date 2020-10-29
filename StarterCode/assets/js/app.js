@@ -208,6 +208,15 @@ d3.csv("assets/data/data.csv")
     circlesGroup
       .append('circle')
       .attr('cx', d => xLinearScale(d[chosenXAxis]))
-      .attr('cy', d => yLinearScale(d[chosenXAxis]))
+      .attr('cy', d => yLinearScale(d[chosenYAxis]))
       .attr('r', r)
       .classed('stateCircle', true);
+    
+    circlesGroup
+      .append('text')
+      .attr('x', d => xLinearScale(d[chosenXAxis]))
+      .attr('x', d => yLinearScale(d[chosenYAxis]))
+      .classed('stateText', true)
+      .text(d => d.abbr)
+      .attr('font-size', r * 0.9);
+      
