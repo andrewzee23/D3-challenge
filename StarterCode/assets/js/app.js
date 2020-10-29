@@ -250,3 +250,35 @@ d3.csv("assets/data/data.csv")
       .attr("value", "income")
       .classed("inactive", true)
       .text("Household Income(Median)");
+
+    var healthcareLabel = ylabelsGroup
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left + 50)
+      .attr("x", 0 - height / 2)
+      .attr("dy", "1em")
+      .attr("value", "healthcare")
+      .classed("active", true)
+      .text("Lacks Healthcare(%)");
+
+    var smokeLabel = ylabelsGroup
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left + 30)
+      .attr("x", 0 - height / 2)
+      .attr("dy", "1em")
+      .attr("value", "smokes")
+      .classed("inactive", true)
+      .text("Smoke(%)");
+
+    var obesityLabel = ylabelsGroup
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left + 10)
+      .attr("x", 0 - height / 2)
+      .attr("dy", "1em")
+      .attr("value", "obesity")
+      .classed("inactive", true)
+      .text("Obesity(%)");
+
+    // adding event listeners to x and y axis
