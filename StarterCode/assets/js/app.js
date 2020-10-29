@@ -196,3 +196,18 @@ d3.csv("assets/data/data.csv")
       .append('g')
       .classed('y-axis', true)
       .call(leftAxis);
+
+    // appending initial circles w/ txt
+    var r = 10;
+    var circles = chartGroup.selectAll('g circle').data(stateData);
+    var circlesGroup = circles
+      .enter()
+      .append('g')
+      .attr('id', 'circlesGroup');
+
+    circlesGroup
+      .append('circle')
+      .attr('cx', d => xLinearScale(d[chosenXAxis]))
+      .attr('cy', d => yLinearScale(d[chosenXAxis]))
+      .attr('r', r)
+      .classed('stateCircle', true);
