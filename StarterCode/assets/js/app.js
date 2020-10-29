@@ -116,3 +116,21 @@ function rendertextCircles(
 
   return circlesGroup;
 }
+
+// func for updating circles with tooltip
+function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
+  if (chosenXAxis === "poverty") {
+    var xlabel = "In Poverty(%): ";
+  } else if (chosenXAxis === "age") {
+    var xlabel = "Median Age: ";
+  } else {
+    var xlabel = "Median Income($): ";
+  }
+  // condi for x axis
+  if (chosenYAxis === "healthcare") {
+    var ylabel = "Lacks Healthcare(%): ";
+  } else if (chosenYAxis === "smokes") {
+    var ylabel = "Smokers(%): ";
+  } else {
+    var ylabel = "Obesity(%): ";
+  }
