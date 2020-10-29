@@ -332,5 +332,57 @@ d3.csv("assets/data/data.csv")
       }
     });
 
-    
-  
+    ylabelsGroup.selectAll("text").on("click", function() {
+      // getting value of selection
+      var yvalue = d3.select(this).attr("value");
+
+      if (yvalue !== chosenYAxis) {
+        // replaces chosenYAxis with value
+        chosenYAxis = yvalue;
+        console.log(chosenYAxis);
+
+        // updates x scale for new data
+        yLinearScale = yScale(stateData, chosenYAxis);
+
+        // updates y axis with transition
+        yAxis = renderyAxes(yLinearScale, yAxis);
+
+        // updates circles with new values
+        circlesGroup = renderCircles(
+          circlesGroup,
+          xLinearScale,
+          chosenXAxis,
+          yLinearScale,
+          chosenYAxis
+        );
+
+        circlesGroup = rendertextCircles(
+          circlesGroup,
+          xLinearScale,
+          chosenXAxis,
+          yLinearScale,
+          chosenYAxis
+        );
+        // updates tooltips with new info
+        circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+
+        // changes classes to change bold text
+        if (chosenYAxis === "healthcare") {
+          healthcareLabel.classed("active", true).classed("inactive", false);
+          smokeLabel.classed("active", false).classed("inactive", true);
+          obesityLabel.classed("active", false).classed("inactive", true);
+        } else if (chosenYAxis === "smokes") {
+          healthcareLabel.classed("active", false).classed("inactive", true);
+          smokeLabel.classed("active", true).classed("inactive", false);
+          obesityLabel.classed("active", false).classed("inactive", true);
+        } else {
+          healthcareLabel.classed("active", false).classed("inactive", true);
+          smokeLabel.classed("active", false).classed("inactive", true);
+          obesityLabel.classed("active", true).classed("inactive", false);
+        }
+      }
+    });
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
