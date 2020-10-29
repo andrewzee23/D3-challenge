@@ -147,3 +147,15 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
     });
 
   circlesGroup.call(toolTip);
+  circlesGroup
+    .on("mouseover", function(data) {
+      toolTip.show(data);
+    })
+    .on("mouseout", function(data, index) {
+      toolTip.hide(data);
+    });
+
+  return circlesGroup;
+}
+
+// importing data
