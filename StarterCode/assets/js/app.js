@@ -158,4 +158,4 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
   return circlesGroup;
 }
 
-// importing data
+// importing data and formatting
