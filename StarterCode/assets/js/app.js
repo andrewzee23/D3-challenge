@@ -226,3 +226,27 @@ d3.csv("assets/data/data.csv")
       .attr("transform", `translate(${width / 2}, ${height + 20})`);
 
     var ylabelsGroup = chartGroup.append("g");
+
+    var povertyLabel = xlabelsGroup
+      .append("text")
+      .attr("x", 0)
+      .attr("y", 20)
+      .attr("value", "poverty")
+      .classed("active", true)
+      .text("In Poverty(%)");
+    
+    var ageLabel = xlabelsGroup
+      .append("text")
+      .attr("x", 0)
+      .attr("y", 40)
+      .attr("value", "age")
+      .classed("inactive", true)
+      .text("Age(Median)");
+    
+    var incomeLabel = xlabelsGroup
+      .append("text")
+      .attr("x", 0)
+      .attr("y", 60)
+      .attr("value", "income")
+      .classed("inactive", true)
+      .text("Household Income(Median)");
