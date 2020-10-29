@@ -159,7 +159,18 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 }
 
 // importing data and formatting
+
 d3.csv("assets/data/data.csv")
-  .then(function(stateData, err) {
-  if (err) throw err;
-  console.log(stateData);
+  .then(function(stateData,err) {
+    if (err) throw err;
+    console.log(stateData);
+
+    // parsing data
+    stateData.forEach(function(data) {
+      data.poverty = +data.poverty;
+      data.healthcare = +data.healthcare;
+      data.age = +data.age;
+      data.smokes = +data.smokes;
+      data.income = +data.income;
+      data.obesity = +data.obesity;
+    });
