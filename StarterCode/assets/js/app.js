@@ -219,4 +219,10 @@ d3.csv("assets/data/data.csv")
       .classed('stateText', true)
       .text(d => d.abbr)
       .attr('font-size', r * 0.9);
-      
+    
+    // creating x and y axis titles
+    var xlabelsGroup = chartGroup
+      .append("g")
+      .attr("transform", `translate(${width / 2}, ${height + 20})`);
+
+    var ylabelsGroup = chartGroup.append("g");
