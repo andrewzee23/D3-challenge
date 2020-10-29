@@ -183,3 +183,16 @@ d3.csv("assets/data/data.csv")
     // Create initial axis functions
     var bottomAxis = d3.axisBottom(xLinearScale);
     var leftAxis = d3.axisLeft(yLinearScale);
+
+    // append x and y axis
+
+    var xAxis = chartGroup
+      .append('g')
+      .classed('x-axis', true)
+      .attr('transform', `translate(0, ${height})`)
+      .call(bottomAxis);
+    
+    var yAxis = chartGroup
+      .append('g')
+      .classed('y-axis', true)
+      .call(leftAxis);
