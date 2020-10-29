@@ -174,3 +174,12 @@ d3.csv("assets/data/data.csv")
       data.income = +data.income;
       data.obesity = +data.obesity;
     });
+
+    var xLinearScale = xScale(stateData, chosenXAxis);
+
+    // Create y scale function
+    var yLinearScale = yScale(stateData, chosenYAxis);
+
+    // Create initial axis functions
+    var bottomAxis = d3.axisBottom(xLinearScale);
+    var leftAxis = d3.axisLeft(yLinearScale);
