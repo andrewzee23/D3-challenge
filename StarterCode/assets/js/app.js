@@ -160,3 +160,6 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 
 // importing data and formatting
 d3.csv("assets/data/data.csv")
+  .then(function(stateData, err) {
+  if (err) throw err;
+  console.log(stateData);
