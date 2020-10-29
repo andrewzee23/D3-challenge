@@ -286,6 +286,28 @@ d3.csv("assets/data/data.csv")
       // get value of selection
       var value = d3.select(this).attr("value");
       if (value !== chosenXAxis) {
-        // replaces chosenXAxis with value
+        // replaces chosenXAxis w/ value
         chosenXAxis = value;
         console.log(chosenXAxis);
+        // updates x scale
+        xLinearScale = xScale(stateData, chosenXAxis);
+
+        // updates x axis w/ transition
+        xAxis = renderxAxes(xLinearScale, xAxis);
+
+        // update circles w/ new values
+        circlesGroup = renderCircles(
+          circlesGroup,
+          xLinearScale,
+          chosenXAxis,
+          yLinearScale,
+          chosenYAxis
+        );
+
+        circlesGroup = rendertextCircles(
+          circlesGroup,
+          xLinearScale,
+          chosenXAxis,
+          yLinearScale,
+          chosenYAxis
+        );
